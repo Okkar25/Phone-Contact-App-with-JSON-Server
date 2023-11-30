@@ -1,0 +1,77 @@
+        <form id="updateContactForm" class="mb-8">
+          <!-- form input -->
+          <div class="">
+            <div class="mb-5">
+              <input
+                type="text"
+                id="nameUpdate"
+                name="name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:opacity-30"
+                placeholder="e.g. Samuel Anderson"
+                required
+              />
+            </div>
+
+            <div class="mb-5">
+              <input
+                type="tel"
+                id="numberUpdate"
+                name="number"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:opacity-30"
+                placeholder="09 - 111222333"
+                required
+              />
+            </div>
+
+            <button
+              class="disabled:opacity-30 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+            >
+              Update Contact
+            </button>
+          </div>
+        </form>
+
+
+export const nameUpdate = app.querySelector("#nameUpdate");
+export const numberUpdate = app.querySelector("#numberUpdate");
+
+
+// edit row
+export const updateContact = async (id) => {
+  const currentRow = document.querySelector(`[contact-id="${id}"]`);
+
+  const options = {
+    placement: "right",
+    backdrop: true,
+    // bodyScrolling: false,
+    // edge: true,
+    // edgeOffset: "",
+    // backdropClasses: "bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30",
+  };
+  
+  nameUpdate.value = currentRow.querySelector(".currentName").innerText;
+  numberUpdate.value = currentRow.querySelector(".currentNumber").innerText;
+
+  const drawer = new Drawer(drawerUi, options);
+
+  drawer.show();
+
+  const response = await fetch(baseUrl + "/contacts/" + id);
+  const data = await response.json();
+  console.log(data);
+};
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+nameCell.innerHTML = `<input class="border-2 border-blue-500 p-2 rounded-lg" value="${currentText}">`;
+
+addEventListener("_", () => {
+
+  addEventListener("_", () => {
+  
+  })
+
+})
+
